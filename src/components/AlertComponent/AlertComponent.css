@@ -1,0 +1,91 @@
+.AlertComponent {
+    position:fixed;
+    left:0;
+    top:0;
+    background-color:rgba(0,0,0,0.7);
+    z-index:1200;
+    width:100%;
+    height:100%;
+    display: flex;
+    align-items: center;
+}
+
+.alertTitle {
+   text-align: center;
+   font-size: 18px;
+   font-weight: 500;
+   border-bottom: 1px solid;
+   border-bottom: 1px solid var(--light-gray);
+   padding: 15px 0px;
+}
+
+.alertBody {
+   padding: 10px;
+   align-items: center;
+   width: 100%;
+   text-align: center;
+   overflow-wrap: break-word;
+}
+
+.alertButton {
+   display: flex;
+   align-items: flex-end;
+   justify-content: space-around;
+   padding: 15px;
+}
+
+.alertDialogue {
+    width:300px;
+    min-height:200px;
+    position: relative;
+    margin: 1.75rem auto;
+    border:0px solid #747474;
+    background-color:white;
+    animation-name:bounceIn;
+    -webkit-animation-name:bounceIn; 
+    border-radius:0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.modalAnimate { 
+    animation-duration: 0.5s; 
+    -webkit-animation-duration:0.5s;
+    animation-fill-mode:both;
+    -webkit-animation-fill-mode:both;
+ }
+
+ @keyframes bounceIn {
+    0% { 
+       opacity:0; 
+       transform:scale(.3);
+    }
+    50% { 
+       opacity:1;
+       transform:scale(1.05);
+    }
+    70% {
+       transform:scale(.9);
+    }
+    100% {
+       transform:scale(1);
+    }
+}
+
+@-webkit-keyframes bounceIn {
+   0% {
+      opacity:0;
+      -webkit-transform:scale(.3);
+   }
+   50% {
+      opacity:1;
+      -webkit-transform:scale(1.05);
+   }
+   70% {
+      -webkit-transform:scale(.9);
+   }
+   100% {
+      -webkit-transform:scale(1);
+   }
+}

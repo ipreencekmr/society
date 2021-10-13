@@ -1,0 +1,30 @@
+.ThemeBtnComponent .btn-theme, .ThemeBtnComponent .btn-outline-secondary {
+    transition: all .2s ease-in-out; 
+}
+
+.ThemeBtnComponent .btn-theme:hover , .ThemeBtnComponent .btn-outline-secondary:hover{
+    transform:scale(1.05); 
+    color: white;
+}
+
+.btn {
+	border-radius: 0px;
+}
+
+.btn:focus {
+	outline: none;
+	box-shadow: none;
+}
+
+.btn.btn-theme{
+    border-radius: 0;
+    background-color: var(--theme-color);
+    color: var(--light-color);
+}
+
+.btn.btn-outline-secondary {
+    border-radius: 0;
+    border-color: var(--bnt-secondary-color);
+    color: var(--bnt-secondary-color);
+}
+
