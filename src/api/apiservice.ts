@@ -23,8 +23,8 @@ export const invokeAPI = async (url:string, method:string, body:any) => {
     }
 }
 
-export const invokeLogin = (username:string, password:string) => { 
+export const invokeLogin = async (username:string, password:string) => { 
     const body:any = {username:username,password:password};
-    return invokeAPI(loginUrl, METHOD_POST, body);
+    return await invokeAPI(loginUrl, METHOD_POST, body);
 }
 

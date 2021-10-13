@@ -13,11 +13,10 @@ import { loadingAction, loginResponse } from './action';
 /*-- API --*/
 import  {invokeLogin} from '../api/apiservice';
 
-export const loginUser = (userName:string, password:string) => {
+export const loginUser =async (userName:string, password:string) => {
     store.dispatch(loadingAction(true));
-    invokeLogin(userName, password).then((response:any)=>{
-        return (dispatch:any) => {
-            dispatch(loginResponse(response));
-        }
-    });
+    const response = await invokeLogin(userName, password);
+    return (dispatch:any) => {
+        dispatch(loginResponse(response));
+    }
 }
