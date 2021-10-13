@@ -2,9 +2,13 @@ import React from 'react'
 
 function HeaderComponent() {
     return (
-        <div>
-            
-        </div>
+        <nav className="navbar navbar-light bg-light">
+            <div className="container-fluid">
+                <a className="navbar-brand" href="#">
+                Bootstrap
+                </a>
+            </div>
+        </nav>
     )
 }
 

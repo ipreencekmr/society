@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 
 function DashboardComponent() {
     return (
@@ -10,7 +11,9 @@ function DashboardComponent() {
 }
 
 const mapStateToProps = (state:any) => {
-    loginResponse:state.loginResponse
+    return {
+        loginResponse:state.loginResponse
+    }
 }
 
-export default connect(mapStateToProps)(DashboardComponent)
+export default withRouter(connect(mapStateToProps)(DashboardComponent))

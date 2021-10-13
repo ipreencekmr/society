@@ -2,9 +2,13 @@ import React from 'react'
 
 function FooterComponent() {
     return (
-        <div>
-            
-        </div>
+        <footer>
+            <nav className="navbar navbar-light bg-light">
+                <div className="container-fluid">
+
+                </div>
+            </nav>
+        </footer>
     )
 }
 

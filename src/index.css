@@ -1,3 +1,11 @@
+:root {
+  --body-color:#f7fcff;
+  --theme-color:#01b5ce;
+  font-size: 16px;
+  line-height: 24px;
+  --white-color:#ffffff;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

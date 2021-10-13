@@ -1,18 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {Provider} from 'react-redux';
 import store from './redux/store';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import LoginComponent from './components/LoginComponent/LoginComponent';
+import DashboardComponent from './components/DashboardComponent/DashboardComponent';
+import HeaderComponent from './components/HeaderComponent/HeaderComponent';
+import FooterComponent from './components/FooterComponent/FooterComponent';
 
 function App() {
   return (
-    <Provider store={store}>
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-    </div>
-    </Provider>
+    <React.Fragment>
+      <HeaderComponent></HeaderComponent>
+      <Router>
+        <Switch>
+          <Provider store={store}>
+            <Route exact path="/login" component={LoginComponent}/>
+            <Route exact path="/dashboard" component={DashboardComponent}/>
+          </Provider>
+        </Switch>
+      </Router>
+      <FooterComponent></FooterComponent>
+    </React.Fragment>
   );
 }
 

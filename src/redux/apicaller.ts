@@ -1,16 +1,18 @@
 
-import store from './store';
-
 /*-- Action --*/
-import { loadingAction, loginResponse } from './action';
+import { loadingAction, loginResponse , errorAction} from './action';
 
 /*-- API --*/
-import  {invokeLogin} from '../api/apiservice';
+import  { invokeLogin } from '../api/apiservice';
 
-export const loginUser =async (userName:string, password:string) => {
-    store.dispatch(loadingAction(true));
-    const response = await invokeLogin(userName, password);
-    return (dispatch:any) => {
-        dispatch(loginResponse(response));
-    }
+export const loginUser = (userName:string, password:string) => {
+    return (dispatch:any) => { //nameless functions
+        dispatch(loadingAction(true)); // Initial action dispatched
+         // Return promise with success and failure actions
+        invokeLogin(userName, password).then((response:any)=>{
+            dispatch(loginResponse(response.data));
+        }).catch((e:any)=>{
+            dispatch(errorAction(e));
+        });
+    };
 }

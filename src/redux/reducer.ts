@@ -18,6 +18,7 @@ const reducer = (state = initialState, action:any) => {
         }
        case ERROR_RESPONSE: {
             return Object.assign({}, state, {
+                isLoading:false,
                 isError:true,
                 errorMsg:action.payload
             });
