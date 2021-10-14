@@ -13,7 +13,7 @@ const loginImgStyle:any = {
 }
 
 function LoginComponent(props:any) {
-
+    //const pwdPattern = "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}";
     const [emailId, setEmailId] = useState('');
     const [password, setPassword] = useState('');
 
@@ -22,7 +22,7 @@ function LoginComponent(props:any) {
         konsole.log('Login Response: '+JSON.stringify(response));
 
         if(response && response['LoginId']) {
-            props.history.push("/dashboard");
+            props.history.push("/home");
         }
 
     },[props.loginResponse, props.history]);
@@ -60,9 +60,9 @@ function LoginComponent(props:any) {
                             </div>
                         </div>
                         <div className="from-group">
-                            <input type="password" placeholder="Password" className="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onChange={(e:any)=>setPassword(e.target.value)} required/>
+                            <input type="password" placeholder="Password" className="form-control" onChange={(e:any)=>setPassword(e.target.value)} required/>
                             <div className="invalid-feedback">
-                                Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters
+                                Please fill your password
                             </div>
                         </div>
                         <ThemeBtnComponent type="button" className="btn loginBtn" onClick={handleClick}>Login</ThemeBtnComponent>

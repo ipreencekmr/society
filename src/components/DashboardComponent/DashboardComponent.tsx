@@ -2,10 +2,10 @@ import React from 'react'
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
-function DashboardComponent() {
+function DashboardComponent(props:any) {
     return (
-        <div>
-            
+        <div className="container">
+            <pre>{JSON.stringify(props.loginResponse)}</pre>
         </div>
     )
 }
