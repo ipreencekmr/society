@@ -18,39 +18,55 @@ function LoginComponent(props:any) {
     const [password, setPassword] = useState('');
 
     useEffect(()=>{
-        const response = props.loginResponse;
+        const response:any = props.loginResponse;
         konsole.log('Login Response: '+JSON.stringify(response));
 
-        if(response) {
+        if(response && response['LoginId']) {
             props.history.push("/dashboard");
         }
-    },[props.loginResponse]);
+
+    },[props.loginResponse, props.history]);
 
 
     const handleClick = (e:any) => {
-        e.preventDefault();
+        
+        const form:any = document.querySelector('#loginFormId');
+        const isValidated = form.checkValidity();
 
-        konsole.log('emailId: '+emailId);
-        konsole.log('password:'+password);
+        if (!isValidated) {
+            e.preventDefault()
+            e.stopPropagation()
+        }
 
-        props.loginUser(emailId, password);
+        form.classList.add('was-validated');
+
+        if(isValidated) {
+            e.preventDefault();
+            props.loginUser(emailId, password);
+        }
     }
 
     return (
         <>
         <div id="loginWrapper">
-            <div className="loginBox">
+            <div className="loginBox" >
                 <div className="loginImage" style={loginImgStyle}></div>
-                <div className="loginForm">                  
+                <form id="loginFormId" className="loginForm needs-validation" noValidate>                  
                     <div className="heading">Hello Welcome Back</div>
                         <div className="from-group">
-                            <input type="text" placeholder="Username" className="form-control" onChange={(e:any)=>setEmailId(e.target.value)} required/>
+                            <input type="email" placeholder="Username" className="form-control" onChange={(e:any)=>setEmailId(e.target.value)} required/>
+                            <div className="invalid-feedback">
+                                Please fill a valid email Id
+                            </div>
                         </div>
                         <div className="from-group">
                             <input type="password" placeholder="Password" className="form-control" onChange={(e:any)=>setPassword(e.target.value)} required/>
+                            <div className="invalid-feedback">
+                                Please fill your password
+                            </div>
                         </div>
                         <ThemeBtnComponent type="button" className="btn loginBtn" onClick={handleClick}>Login</ThemeBtnComponent>
-                </div>
+                </form>
             </div>
         </div>
         {(props.isLoading===true)?<ActivityLoader></ActivityLoader>:null}
