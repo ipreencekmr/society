@@ -60,9 +60,9 @@ function LoginComponent(props:any) {
                             </div>
                         </div>
                         <div className="from-group">
-                            <input type="password" placeholder="Password" className="form-control" onChange={(e:any)=>setPassword(e.target.value)} required/>
+                            <input type="password" placeholder="Password" className="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onChange={(e:any)=>setPassword(e.target.value)} required/>
                             <div className="invalid-feedback">
-                                Please fill your password
+                                Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters
                             </div>
                         </div>
                         <ThemeBtnComponent type="button" className="btn loginBtn" onClick={handleClick}>Login</ThemeBtnComponent>
